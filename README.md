@@ -59,8 +59,7 @@ Pencocokan Database Profesi
 Rekomendasi Karir
     ↓
 Informasi Jalur Pendidikan
-
----
+```
 
 ## 💡 Quotes Inspiratif
 
