@@ -1,0 +1,125 @@
+
+[
+  {
+    "nama": "Software Developer",
+    "minat": ["teknologi", "matematika", "coding", "programming", "komputer"],
+    "deskripsi": "Membuat dan mengembangkan aplikasi atau website."
+  },
+  {
+    "nama": "Game Developer",
+    "minat": ["game", "gaming", "programming", "teknologi", "komputer", "coding", "developer"],
+    "deskripsi": "Membuat dan mengembangkan video game."
+  },
+  {
+    "nama": "Game Designer",
+    "minat": ["game", "gaming", "desain", "kreatif", "level design"],
+    "deskripsi": "Merancang gameplay, level, dan mekanik game."
+  },
+  {
+    "nama": "Esports Player",
+    "minat": ["game", "gaming", "kompetitif", "esports", "turnamen"],
+    "deskripsi": "Bermain game secara profesional dalam turnamen."
+  },
+  {
+    "nama": "Streamer",
+    "minat": ["game", "gaming", "hiburan", "konten", "streaming"],
+    "deskripsi": "Membuat siaran langsung dan konten gaming."
+  },
+  {
+    "nama": "Dokter",
+    "minat": ["biologi", "sains", "kesehatan", "medis"],
+    "deskripsi": "Mendiagnosis dan mengobati pasien."
+  },
+  {
+    "nama": "Psikolog",
+    "minat": ["psikologi", "konseling", "sosial", "komunikasi"],
+    "deskripsi": "Membantu memahami perilaku dan kesehatan mental manusia."
+  },
+  {
+    "nama": "Guru",
+    "minat": ["mengajar", "pendidikan", "komunikasi"],
+    "deskripsi": "Mengajar dan membimbing siswa."
+  },
+  {
+    "nama": "Guru Bahasa Inggris",
+    "minat": ["mengajar", "bahasa inggris", "pendidikan"],
+    "deskripsi": "Mengajar bahasa Inggris kepada siswa."
+  },
+  {
+    "nama": "Akuntan",
+    "minat": ["matematika", "keuangan", "analisis"],
+    "deskripsi": "Mengelola dan menganalisis laporan keuangan."
+  },
+  {
+    "nama": "Data Scientist",
+    "minat": ["data", "matematika", "analisis", "teknologi"],
+    "deskripsi": "Menganalisis data untuk membantu pengambilan keputusan."
+  },
+  {
+    "nama": "Cyber Security Analyst",
+    "minat": ["teknologi", "komputer", "keamanan", "programming"],
+    "deskripsi": "Melindungi sistem komputer dari ancaman siber."
+  },
+  {
+    "nama": "Arsitek",
+    "minat": ["desain", "menggambar", "matematika", "kreatif"],
+    "deskripsi": "Merancang bangunan dan lingkungan."
+  },
+  {
+    "nama": "Chef",
+    "minat": ["memasak", "kuliner", "kreatif"],
+    "deskripsi": "Membuat dan mengembangkan hidangan makanan."
+  },
+  {
+    "nama": "Pilot",
+    "minat": ["penerbangan", "teknologi", "petualangan"],
+    "deskripsi": "Menerbangkan pesawat."
+  },
+  {
+    "nama": "Jurnalis",
+    "minat": ["menulis", "komunikasi", "berita"],
+    "deskripsi": "Mengumpulkan dan menyampaikan informasi kepada masyarakat."
+  },
+  {
+    "nama": "Content Creator",
+    "minat": ["konten", "video", "media sosial", "kreatif"],
+    "deskripsi": "Membuat konten digital untuk berbagai platform."
+  },
+  {
+    "nama": "Atlet Sepak Bola",
+    "minat": ["sepak bola", "football", "soccer", "olahraga", "atlet"],
+    "deskripsi": "Bermain sepak bola secara profesional."
+  },
+  {
+    "nama": "Atlet Futsal",
+    "minat": ["futsal", "olahraga", "atlet"],
+    "deskripsi": "Bermain futsal secara profesional."
+  },
+  {
+    "nama": "Atlet Basket",
+    "minat": ["basket", "basketball", "olahraga", "atlet"],
+    "deskripsi": "Bertanding dalam kompetisi basket."
+  },
+  {
+    "nama": "Atlet Voli",
+    "minat": ["voli", "volleyball", "olahraga", "atlet"],
+    "deskripsi": "Berkompetisi dalam olahraga bola voli."
+  },
+  {
+    "nama": "Atlet Bulu Tangkis",
+    "minat": ["badminton", "bulu tangkis", "olahraga", "atlet"],
+    "deskripsi": "Bertanding dalam olahraga bulu tangkis."
+  },
+  {
+    "nama": "Atlet Renang",
+    "minat": ["renang", "swimming", "olahraga", "atlet"],
+    "deskripsi": "Mengikuti perlombaan renang profesional."
+  },
+  {
+    "nama": "Atlet Atletik",
+    "minat": ["lari", "sprint", "atletik", "olahraga", "atlet"],
+    "deskripsi": "Berkompetisi dalam cabang atletik."
+  }
+]
+
+
