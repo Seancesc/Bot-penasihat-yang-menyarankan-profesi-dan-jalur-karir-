@@ -1,15 +1,16 @@
+
 [
   {
     "nama": "Software Developer",
-    "email": "hr@techsoft.co.id",
-    "gaji": "Rp6.000.000 - Rp20.000.000",
     "minat": ["teknologi", "matematika", "coding", "programming", "komputer"],
     "deskripsi": "Membuat dan mengembangkan aplikasi atau website."
   },
   {
     "nama": "Game Developer",
+
     "email": "recruitment@pixelforgegames.com",
     "gaji": "Rp5.000.000 - Rp18.000.000",
+
     "minat": ["game", "gaming", "programming", "teknologi", "komputer", "coding", "developer"],
     "deskripsi": "Membuat dan mengembangkan video game."
   },
