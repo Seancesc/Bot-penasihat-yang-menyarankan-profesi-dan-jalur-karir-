@@ -1,0 +1,172 @@
+[
+  {
+    "nama": "Software Developer",
+    "email": "hr@techsoft.co.id",
+    "gaji": "Rp6.000.000 - Rp20.000.000",
+    "minat": ["teknologi", "matematika", "coding", "programming", "komputer"],
+    "deskripsi": "Membuat dan mengembangkan aplikasi atau website."
+  },
+  {
+    "nama": "Game Developer",
+    "email": "recruitment@pixelforgegames.com",
+    "gaji": "Rp5.000.000 - Rp18.000.000",
+    "minat": ["game", "gaming", "programming", "teknologi", "komputer", "coding", "developer"],
+    "deskripsi": "Membuat dan mengembangkan video game."
+  },
+  {
+    "nama": "Game Designer",
+    "email": "jobs@gamedesignstudio.com",
+    "gaji": "Rp5.000.000 - Rp15.000.000",
+    "minat": ["game", "gaming", "desain", "kreatif", "level design"],
+    "deskripsi": "Merancang gameplay, level, dan mekanik game."
+  },
+  {
+    "nama": "Esports Player",
+    "email": "talent@esportsarena.gg",
+    "gaji": "Rp3.000.000 - Rp50.000.000+",
+    "minat": ["game", "gaming", "kompetitif", "esports", "turnamen"],
+    "deskripsi": "Bermain game secara profesional dalam turnamen."
+  },
+  {
+    "nama": "Streamer",
+    "email": "creator@streamhub.live",
+    "gaji": "Rp1.000.000 - Rp100.000.000+",
+    "minat": ["game", "gaming", "hiburan", "konten", "streaming"],
+    "deskripsi": "Membuat siaran langsung dan konten gaming."
+  },
+  {
+    "nama": "Dokter",
+    "email": "hr@sehatsentosa.id",
+    "gaji": "Rp8.000.000 - Rp50.000.000+",
+    "minat": ["biologi", "sains", "kesehatan", "medis"],
+    "deskripsi": "Mendiagnosis dan mengobati pasien."
+  },
+  {
+    "nama": "Psikolog",
+    "email": "career@mindcare.id",
+    "gaji": "Rp5.000.000 - Rp20.000.000",
+    "minat": ["psikologi", "konseling", "sosial", "komunikasi"],
+    "deskripsi": "Membantu memahami perilaku dan kesehatan mental manusia."
+  },
+  {
+    "nama": "Guru",
+    "email": "rekrutmen@sekolahnusantara.sch.id",
+    "gaji": "Rp3.000.000 - Rp10.000.000",
+    "minat": ["mengajar", "pendidikan", "komunikasi"],
+    "deskripsi": "Mengajar dan membimbing siswa."
+  },
+  {
+    "nama": "Guru Bahasa Inggris",
+    "email": "english@brightfuture.sch.id",
+    "gaji": "Rp4.000.000 - Rp12.000.000",
+    "minat": ["mengajar", "bahasa inggris", "pendidikan"],
+    "deskripsi": "Mengajar bahasa Inggris kepada siswa."
+  },
+  {
+    "nama": "Akuntan",
+    "email": "finance@akuntanprima.co.id",
+    "gaji": "Rp5.000.000 - Rp15.000.000",
+    "minat": ["matematika", "keuangan", "analisis"],
+    "deskripsi": "Mengelola dan menganalisis laporan keuangan."
+  },
+  {
+    "nama": "Data Scientist",
+    "email": "data@insightanalytics.ai",
+    "gaji": "Rp8.000.000 - Rp30.000.000",
+    "minat": ["data", "matematika", "analisis", "teknologi"],
+    "deskripsi": "Menganalisis data untuk membantu pengambilan keputusan."
+  },
+  {
+    "nama": "Cyber Security Analyst",
+    "email": "security@cyberguard.id",
+    "gaji": "Rp7.000.000 - Rp25.000.000",
+    "minat": ["teknologi", "komputer", "keamanan", "programming"],
+    "deskripsi": "Melindungi sistem komputer dari ancaman siber."
+  },
+  {
+    "nama": "Arsitek",
+    "email": "hr@arsitekvision.com",
+    "gaji": "Rp5.000.000 - Rp20.000.000",
+    "minat": ["desain", "menggambar", "matematika", "kreatif"],
+    "deskripsi": "Merancang bangunan dan lingkungan."
+  },
+  {
+    "nama": "Chef",
+    "email": "masterchef@indonesianfood.id",
+    "gaji": "Rp4.000.000 - Rp25.000.000",
+    "minat": ["memasak", "kuliner", "kreatif"],
+    "deskripsi": "Membuat dan mengembangkan hidangan makanan."
+  },
+  {
+    "nama": "Pilot",
+    "email": "career@skyairlines.co.id",
+    "gaji": "Rp15.000.000 - Rp80.000.000",
+    "minat": ["penerbangan", "teknologi", "petualangan"],
+    "deskripsi": "Menerbangkan pesawat."
+  },
+  {
+    "nama": "Jurnalis",
+    "email": "recruitment@mediakita.id",
+    "gaji": "Rp4.000.000 - Rp12.000.000",
+    "minat": ["menulis", "komunikasi", "berita"],
+    "deskripsi": "Mengumpulkan dan menyampaikan informasi kepada masyarakat."
+  },
+  {
+    "nama": "Content Creator",
+    "email": "creator@viralmedia.id",
+    "gaji": "Rp2.000.000 - Rp50.000.000+",
+    "minat": ["konten", "video", "media sosial", "kreatif"],
+    "deskripsi": "Membuat konten digital untuk berbagai platform."
+  },
+  {
+    "nama": "Atlet Sepak Bola",
+    "email": "talent@garudafc.id",
+    "gaji": "Rp5.000.000 - Rp100.000.000+",
+    "minat": ["sepak bola", "football", "soccer", "olahraga", "atlet"],
+    "deskripsi": "Bermain sepak bola secara profesional."
+  },
+  {
+    "nama": "Atlet Futsal",
+    "email": "futsal@5x5.id",
+    "gaji": "Rp3.000.000 - Rp30.000.000",
+    "minat": ["futsal", "olahraga", "atlet"],
+    "deskripsi": "Bermain futsal secara profesional."
+  },
+  {
+    "nama": "Atlet Basket",
+    "email": "hoopers@official3x3.id",
+    "gaji": "Rp4.000.000 - Rp50.000.000",
+    "minat": ["basket", "basketball", "olahraga", "atlet"],
+    "deskripsi": "Bertanding dalam kompetisi basket."
+  },
+  {
+    "nama": "Atlet Voli",
+    "email": "talent@volinasional.id",
+    "gaji": "Rp4.000.000 - Rp40.000.000",
+    "minat": ["voli", "volleyball", "olahraga", "atlet"],
+    "deskripsi": "Berkompetisi dalam olahraga bola voli."
+  },
+  {
+    "nama": "Atlet Bulu Tangkis",
+    "email": "buluditangkis@tangkisbulu.id",
+    "gaji": "Rp5.000.000 - Rp60.000.000",
+    "minat": ["badminton", "bulu tangkis", "olahraga", "atlet"],
+    "deskripsi": "Bertanding dalam olahraga bulu tangkis."
+  },
+  {
+    "nama": "Atlet Renang",
+    "email": "career@swimclub.id",
+    "gaji": "Rp3.000.000 - Rp25.000.000",
+    "minat": ["renang", "swimming", "olahraga", "atlet"],
+    "deskripsi": "Mengikuti perlombaan renang profesional."
+  },
+  {
+    "nama": "Atlet Atletik",
+    "email": "talent@athleticscenter.id",
+    "gaji": "Rp3.000.000 - Rp30.000.000",
+    "minat": ["lari", "sprint", "atletik", "olahraga", "atlet"],
+    "deskripsi": "Berkompetisi dalam cabang atletik."
+  }
+]
+
+
