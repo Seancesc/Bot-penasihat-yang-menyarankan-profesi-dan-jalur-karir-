@@ -137,7 +137,91 @@ async def karir(ctx, *, minat_input):
         view=ShowKarirView(detail)
     )
 
-bot.run("TOKEN")
+class StartView(discord.ui.View):
+    def __init__(self):
+        super().__init__(timeout=120)
+
+    @discord.ui.button(
+        label="How To Use",
+        style=discord.ButtonStyle.blurple,
+        emoji="📖"
+    )
+    async def how_to_use(self, interaction: discord.Interaction, button: discord.ui.Button):
+
+        embed = discord.Embed(
+            title="📖 Cara Menggunakan Bot",
+            color=discord.Color.green()
+        )
+
+        embed.add_field(
+            name="🎯 !karir",
+            value=(
+                "Mencari rekomendasi karir berdasarkan minat.\n"
+                "**Contoh:**\n"
+                "`!karir coding, teknologi, game`"
+            ),
+            inline=False
+        )
+
+        embed.add_field(
+            name="📋 !loker",
+            value=(
+                "Menampilkan daftar lowongan kerja.\n"
+                "**Contoh:**\n"
+                "`!loker`\n"
+                "`!loker 2` (halaman 2)"
+            ),
+            inline=False
+        )
+
+        embed.add_field(
+            name="💡 Cara Kerja Bot",
+            value=(
+                "1. Masukkan minat kamu menggunakan `!karir`.\n"
+                "2. Bot akan mencocokkan minat dengan database profesi.\n"
+                "3. Klik tombol Show untuk melihat hasil lengkap.\n"
+                "4. Gunakan `!loker` untuk melihat lowongan yang tersedia."
+            ),
+            inline=False
+        )
+
+        await interaction.response.send_message(
+            embed=embed,
+            ephemeral=True
+        )
+
+
+@bot.command()
+async def start(ctx):
+    embed = discord.Embed(
+        title="🤖 Selamat Datang di Career Advisor Bot",
+        description=(
+            "Bot ini membantu kamu menemukan profesi yang cocok "
+            "berdasarkan minat dan melihat lowongan kerja yang tersedia."
+        ),
+        color=discord.Color.gold()
+    )
+
+    embed.add_field(
+        name="✨ Fitur Utama",
+        value=(
+            "🎯 Rekomendasi karir berdasarkan minat\n"
+            "📋 Daftar lowongan kerja\n"
+            "📌 Tampilan hasil yang mudah dibaca"
+        ),
+        inline=False
+    )
+
+    embed.set_footer(
+        text="Klik tombol 'How To Use' untuk melihat panduan."
+    )
+
+    await ctx.send(
+        embed=embed,
+        view=StartView()
+    )
+
+bot.run("Token")
 
 
 
