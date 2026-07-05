@@ -22,6 +22,19 @@ def save_players(players):
         json.dump(players, f, indent=4)
 
 players = load_players()
+
+for user_id in players:
+    if "skill" not in players[user_id]:
+        players[user_id]["skill"] = 1
+
+    if "rumah" not in players[user_id]:
+        players[user_id]["rumah"] = "Belum Punya"
+
+    if "kendaraan" not in players[user_id]:
+        players[user_id]["kendaraan"] = "Belum Punya"
+
+save_players(players)
+
 work_cooldown = {}
 
 with open("database.json", "r", encoding="utf-8") as file:
@@ -81,6 +94,222 @@ import discord
 from discord.ext import commands
 
 @bot.command()
+async def shop(ctx):
+    embed = discord.Embed(
+        title="🛒 Career Shop",
+        description="Belanjakan uangmu untuk meningkatkan karier dan gaya hidup!",
+        color=discord.Color.blue()
+    )
+
+    embed.add_field(
+        name="📚 Skill",
+        value=(
+            "`!beli kursus` - Rp10.000.000\n"
+            "Meningkatkan bonus gaji sebesar 10%"
+        ),
+        inline=False
+    )
+
+    embed.add_field(
+        name="🚗 Kendaraan",
+        value=(
+            "`!beli motor` - Rp20.000.000\n"
+            "`!beli mobil` - Rp150.000.000\n"
+            "`!beli mobilsport` - Rp1.000.000.000"
+        ),
+        inline=False
+    )
+
+    embed.add_field(
+        name="🏠 Rumah",
+        value=(
+            "`!beli rumah` - Rp50.000.000\n"
+            "`!beli mewah` - Rp500.000.000\n"
+            "`!beli villa` - Rp2.000.000.000"
+        ),
+        inline=False
+    )
+
+    embed.set_footer(
+        text="Gunakan !beli <item> untuk membeli."
+    )
+
+    await ctx.send(embed=embed)
+
+@bot.command()
+async def beli(ctx, item):
+    user_id = str(ctx.author.id)
+
+    if user_id not in players:
+        await ctx.send("❌ Kamu belum memiliki profesi.")
+        return
+
+    player = players[user_id]
+
+    item = item.lower()
+
+    # ======================
+    # KENDARAAN
+    # ======================
+
+    if item == "motor":
+
+        if player["kendaraan"] != "Belum Punya":
+            await ctx.send("❌ Kamu sudah memiliki kendaraan.")
+            return
+
+        harga = 20000000
+
+        if player["saldo"] < harga:
+            await ctx.send("❌ Saldo tidak cukup.")
+            return
+
+        player["saldo"] -= harga
+        player["kendaraan"] = "Motor"
+
+    elif item == "mobil":
+
+        if player["kendaraan"] != "Motor":
+            await ctx.send("❌ Kamu harus memiliki Motor terlebih dahulu.")
+            return
+
+        harga = 150000000
+
+        if player["saldo"] < harga:
+            await ctx.send("❌ Saldo tidak cukup.")
+            return
+
+        player["saldo"] -= harga
+        player["kendaraan"] = "Mobil"
+
+    elif item == "mobilsport":
+
+        if player["kendaraan"] != "Mobil":
+            await ctx.send("❌ Kamu harus memiliki Mobil terlebih dahulu.")
+            return
+
+        harga = 1000000000
+
+        if player["saldo"] < harga:
+            await ctx.send("❌ Saldo tidak cukup.")
+            return
+
+        player["saldo"] -= harga
+        player["kendaraan"] = "Mobil Sport"
+
+    # ======================
+    # RUMAH
+    # ======================
+
+    elif item == "rumah":
+
+        if player["rumah"] != "Belum Punya":
+            await ctx.send("❌ Kamu sudah memiliki rumah.")
+            return
+
+        harga = 50000000
+
+        if player["saldo"] < harga:
+            await ctx.send("❌ Saldo tidak cukup.")
+            return
+
+        player["saldo"] -= harga
+        player["rumah"] = "Rumah Biasa"
+
+    elif item == "mewah":
+
+        if player["rumah"] != "Rumah Biasa":
+            await ctx.send("❌ Kamu harus memiliki Rumah Biasa terlebih dahulu.")
+            return
+
+        harga = 500000000
+
+        if player["saldo"] < harga:
+            await ctx.send("❌ Saldo tidak cukup.")
+            return
+
+        player["saldo"] -= harga
+        player["rumah"] = "Rumah Mewah"
+
+    elif item == "villa":
+
+        if player["rumah"] != "Rumah Mewah":
+            await ctx.send("❌ Kamu harus memiliki Rumah Mewah terlebih dahulu.")
+            return
+
+        harga = 2000000000
+
+        if player["saldo"] < harga:
+            await ctx.send("❌ Saldo tidak cukup.")
+            return
+
+        player["saldo"] -= harga
+        player["rumah"] = "Villa"
+
+    else:
+        await ctx.send("❌ Item tidak ditemukan.")
+        return
+
+    save_players(players)
+
+    await ctx.send(
+        f"✅ Berhasil membeli **{item.title()}**!"
+    )
+
+class KonfirmasiKarirView(discord.ui.View):
+    def __init__(self, profesi):
+        super().__init__(timeout=60)
+        self.profesi = profesi
+
+    @discord.ui.button(
+        label="Ya",
+        emoji="✅",
+        style=discord.ButtonStyle.green
+    )
+    async def ya(self, interaction: discord.Interaction, button: discord.ui.Button):
+
+        user_id = str(interaction.user.id)
+
+        players[user_id] = {
+            "nama": interaction.user.name,
+            "profesi": self.profesi["nama"],
+            "saldo": 0,
+            "xp": 0,
+            "level": 1,
+            "skill": 1,
+            "rumah": "Belum Punya",
+            "kendaraan": "Belum Punya"
+        }
+
+        save_players(players)
+
+        await interaction.response.edit_message(
+            content=(
+                f"🎉 Selamat! Kamu diterima sebagai **{self.profesi['nama']}**\n"
+                f"🏢 Perusahaan: **{self.profesi['perusahaan']}**\n\n"
+                f"Gunakan `!kerja` untuk mulai bekerja."
+            ),
+            embed=None,
+            view=None
+        )
+
+    @discord.ui.button(
+        label="Tidak",
+        emoji="❌",
+        style=discord.ButtonStyle.red
+    )
+    async def tidak(self, interaction: discord.Interaction, button: discord.ui.Button):
+
+        await interaction.response.edit_message(
+            content=(
+                f"👍 Baik, kamu hanya melihat rekomendasi profesi **{self.profesi['nama']}**.\n"
+                f"Mini game Career Tycoon tidak dimulai."
+            ),
+            embed=None,
+            view=None
+        )
+
+@bot.command()
 async def tertarik(ctx, *, nama_profesi):
     profesi_ditemukan = None
 
@@ -102,23 +331,24 @@ async def tertarik(ctx, *, nama_profesi):
         )
         return
 
-    if user_id in players:
-        players[user_id]["profesi"] = profesi_ditemukan["nama"]
-    else:
-        players[user_id] = {
-            "nama": ctx.author.name,
-            "profesi": profesi_ditemukan["nama"],
-            "saldo": 0,
-            "xp": 0,
-            "level": 1
-        }
+    embed = discord.Embed(
+        title="🎮 Career Tycoon",
+        description=(
+            f"Kamu tertarik dengan profesi **{profesi_ditemukan['nama']}**.\n\n"
+            f"Apakah kamu ingin mencoba simulasi mini game Career Tycoon?"
+        ),
+        color=discord.Color.gold()
+    )
 
-    save_players(players)
+    embed.add_field(
+        name="🏢 Perusahaan",
+        value=profesi_ditemukan["perusahaan"],
+        inline=False
+    )
 
     await ctx.send(
-        f"🎉 Selamat! Kamu diterima sebagai **{profesi_ditemukan['nama']}**\n"
-        f"🏢 Perusahaan: **{profesi_ditemukan['perusahaan']}**\n\n"
-        f"Gunakan `!kerja` untuk mulai bekerja."
+        embed=embed,
+        view=KonfirmasiKarirView(profesi_ditemukan)
     )
 
 @bot.command()
@@ -169,25 +399,69 @@ async def kerja(ctx):
     player = players[user_id]
     profesi = player["profesi"]
 
+    # Untuk data lama yang belum punya skill
+    if "skill" not in player:
+        player["skill"] = 1
+
     berhasil = random.choice([True, False])
 
+    bonus_skill = player["skill"] * 0.1
+
+# Bonus kendaraan
+    bonus_kendaraan = 0
+
+    if player["kendaraan"] == "Motor":
+        bonus_kendaraan = 0.05
+
+    elif player["kendaraan"] == "Mobil":
+        bonus_kendaraan = 0.10
+
+    elif player["kendaraan"] == "Mobil Sport":
+        bonus_kendaraan = 0.20
+
+    # Total bonus uang
+    total_bonus = bonus_skill + bonus_kendaraan
+
+    # Bonus rumah untuk XP
+    bonus_xp = 0
+
+    if player["rumah"] == "Rumah Biasa":
+        bonus_xp = 5
+
+    elif player["rumah"] == "Rumah Mewah":
+        bonus_xp = 10
+
+    elif player["rumah"] == "Villa":
+        bonus_xp = 20
+
     if berhasil:
-        uang = random.randint(3000000, 7000000)
+        uang = int(
+            random.randint(3000000, 7000000)
+            * (1 + total_bonus)
+        )
+
         xp = random.randint(25, 50)
 
         pesan = (
             f"🏆 Sebagai **{profesi}**, kamu berhasil bekerja hari ini!\n"
             f"💰 +Rp{uang:,}\n"
-            f"⭐ +{xp} XP"
+            f"⭐ +{xp} XP\n"
+            f"📚 Bonus Skill: +{int(bonus_skill * 100)}%"
         )
+
     else:
-        uang = random.randint(500000, 2000000)
+        uang = int(
+            random.randint(500000, 2000000)
+            * (1 + bonus_skill)
+        )
+
         xp = random.randint(5, 15)
 
         pesan = (
             f"😅 Hari ini kurang beruntung sebagai **{profesi}**.\n"
             f"💰 +Rp{uang:,}\n"
-            f"⭐ +{xp} XP"
+            f"⭐ +{xp} XP\n"
+            f"📚 Bonus Skill: +{int(bonus_skill * 100)}%"
         )
 
     player["saldo"] += uang
@@ -195,17 +469,22 @@ async def kerja(ctx):
 
     kebutuhan_xp = player["level"] * 100
 
-    if player["xp"] >= kebutuhan_xp:
+    while player["xp"] >= kebutuhan_xp:
         player["xp"] -= kebutuhan_xp
         player["level"] += 1
-        pesan += f"\n\n🎉 LEVEL UP! Sekarang Level {player['level']}"
+        kebutuhan_xp = player["level"] * 100
+
+        pesan += (
+            f"\n\n🎉 LEVEL UP!"
+            f"\n⭐ Level sekarang: **{player['level']}**"
+        )
 
     work_cooldown[user_id] = sekarang
 
     save_players(players)
 
     await ctx.send(pesan)
-    
+
 @bot.command()
 async def profile(ctx):
     user_id = str(ctx.author.id)
@@ -237,6 +516,27 @@ async def profile(ctx):
         name="✨ XP",
         value=str(player["xp"]),
         inline=True
+    )
+
+    embed.add_field(
+    name="📚 Skill",
+    value=str(player["skill"]),
+    inline=True
+
+    )
+
+    embed.add_field(
+    name="🏠 Rumah",
+    value=player["rumah"],
+    inline=True
+
+    )
+
+    embed.add_field(
+    name="🚗 Kendaraan",
+    value=player["kendaraan"],
+    inline=True
+
     )
 
     embed.add_field(
